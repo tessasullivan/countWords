@@ -1,4 +1,4 @@
-//var sentence = "row row row the boat gently down the stream";
+//This code returns unique words and number of occurrences ordered by word length
 
 function findUniques(sentence) {
   var words = sentence.toLowerCase().split(' ');
@@ -13,30 +13,22 @@ function findUniques(sentence) {
   return wordList;
 };
 
-function sortObject(ourObject) {
-  var arrayArray = Object.entries(ourObject);
-  arrayArray.sort(function(a, b){
-    return b[1] - a[1];
+function sortStringByWordLength(string){
+  var array = string.split(' ');
+  array.sort(function(a, b){
+    return a.length - b.length;
   });
-  return arrayArray;
-};
+  return array.join(' ');
+}
 
 $(function(){
   $('#sentenceForm').submit(function(event){
     event.preventDefault();
-    var wordList = sortObject(findUniques($('#sentence').val()));
-    console.log(wordList);
+    var wordList = findUniques(sortStringByWordLength($('#sentence').val()));
     $('#output').append("<ul></ul>");
-    wordList.forEach(function(word){
-      $('#output ul').append('<li>' + word[0] + ': ' + word[1] + '</li>');
-    });
-
-
-
-
-    // for (var word in wordList) {
-    //   $('#output ul').append("<li>" + word + ": " + wordList[word] + "</li>");
-    // }
+    for (var word in wordList) {
+      $('#output ul').append("<li>" + word + ": " + wordList[word] + "</li>");
+    }
 
   });
 
