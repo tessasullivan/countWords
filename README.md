@@ -8,6 +8,9 @@ takes a string and outputs the number of occurrences of each unique word; uses h
 | :-------------     | :------------- | :------------- |
 | Occurrence of words is counted | User enters a sentence |The words are listed alphabetically with the count of occurrences|
 
+## Installation
+No installation or setup required.  Simply go to https://tessasullivan.github.io/countWords/.
+
 ## Known Issues
 * Previous results are not cleared when a new search is entered.
 
